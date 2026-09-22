@@ -53,7 +53,7 @@ export function midiToNote(
     Math.round(midi)
 
   const noteIndex =
-    roundedMidi % 12
+    ((roundedMidi % 12) + 12) % 12
 
   const octave =
     Math.floor(
@@ -90,7 +90,7 @@ export function frequencyToPitch(
     Math.round(midi)
 
   const noteIndex =
-    roundedMidi % 12
+    ((roundedMidi % 12) + 12) % 12
 
   const octave =
     Math.floor(
@@ -104,7 +104,7 @@ export function frequencyToPitch(
     midi,
 
     note:
-      NOTE_NAMES[noteIndex],
+      NOTE_NAMES[noteIndex]!,
 
     octave
 

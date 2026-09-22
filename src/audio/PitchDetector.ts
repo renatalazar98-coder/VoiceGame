@@ -13,7 +13,7 @@ export class PitchDetector {
     let mean = 0
 
     for (let i = 0; i < SIZE; i++) {
-      mean += buffer[i]
+      mean += buffer[i]!
     }
 
     mean /= SIZE
@@ -23,15 +23,15 @@ export class PitchDetector {
 
     for (let i = 0; i < SIZE; i++) {
       signal[i] =
-        buffer[i] - mean
+        buffer[i]! - mean
     }
 
     let rms = 0
 
     for (let i = 0; i < SIZE; i++) {
       rms +=
-        signal[i] *
-        signal[i]
+        signal[i]! *
+        signal[i]!
     }
 
     rms =
@@ -76,8 +76,8 @@ export class PitchDetector {
       ) {
 
         correlation +=
-          signal[i] *
-          signal[i + lag]
+          signal[i]! *
+          signal[i + lag]!
 
       }
 
