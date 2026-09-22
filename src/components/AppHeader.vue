@@ -270,7 +270,7 @@ onUnmounted(() => {
   right: 0;
 
   background:
-    rgba(13, 13, 15, 0.85);
+    rgba(242, 242, 240, 0.85);
 
   backdrop-filter:
     blur(10px);

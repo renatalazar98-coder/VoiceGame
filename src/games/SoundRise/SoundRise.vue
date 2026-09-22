@@ -18,6 +18,9 @@ import {
   visualizationConfig
 } from '../../config/visualization'
 
+import nomeSoundrise from '../../images/nome-soundrise.png'
+import prato from '../../images/prato.png'
+
 
 const {pitch,intensity,isRunning,error,start,stop} = useAudio()
 
@@ -106,6 +109,20 @@ const sunScale =
     </div>
 
 
+    <img
+      :src="nomeSoundrise"
+      alt="Soundrise"
+      class="game-title"
+    />
+
+
+    <img
+      :src="prato"
+      alt=""
+      class="ground-grass"
+    />
+
+
     <div class="status">
 
       <span
@@ -130,10 +147,6 @@ const sunScale =
 
       </span>
 
-    </div>
-
-
-    <div class="note-display">
 
       <span
         v-if="pitch.note"
@@ -165,9 +178,12 @@ const sunScale =
   align-items: center;
   justify-content: center;
 
-  background: #111;
+  background:
+    url('../../images/sfondo.png')
+    center / cover
+    no-repeat;
 
-  color: white;
+  color: var(--color-text);
 
   overflow: hidden;
 
@@ -179,6 +195,8 @@ const sunScale =
   position: absolute;
 
   inset: 0;
+
+  z-index: 2;
 
   display: flex;
 
@@ -192,15 +210,56 @@ const sunScale =
 
 .sun {
 
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
 
   border-radius: 50%;
 
-  background: orange;
+  background: #ffff00;
 
   transition:
     transform 0.08s linear;
+
+}
+
+
+.game-title {
+
+  position: absolute;
+
+  top: 108px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 3;
+
+  height: 22px;
+  width: auto;
+
+  pointer-events: none;
+
+}
+
+
+.ground-grass {
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: auto;
+
+  pointer-events: none;
+
+  user-select: none;
 
 }
 
@@ -209,23 +268,24 @@ const sunScale =
 
   position: absolute;
 
-  top: 88px;
+  left: 0;
+  right: 0;
 
-  left: 50%;
+  bottom: 40px;
 
-  transform:
-    translateX(-50%);
+  z-index: 3;
 
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  gap: 8px;
+  gap: 10px;
 
   font-size: 0.75rem;
 
   color:
-    rgba(255, 255, 255, 0.5);
+    var(--color-text-secondary);
 
   letter-spacing: 0.04em;
 
@@ -242,7 +302,7 @@ const sunScale =
   border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.25);
+    rgba(23, 24, 26, 0.2);
 
 }
 
@@ -258,30 +318,21 @@ const sunScale =
 .status-dot.error {
 
   background:
-    #ff5c5c;
-
-}
-
-
-.note-display {
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  bottom: 48px;
-
-  display: flex;
-
-  justify-content: center;
-
-  pointer-events: none;
+    #e0303c;
 
 }
 
 
 .note {
+
+  margin-left:
+    var(--space-sm);
+
+  padding-left:
+    var(--space-sm);
+
+  border-left:
+    1px solid var(--color-border);
 
   font-family:
     Inter,
@@ -290,14 +341,14 @@ const sunScale =
     "Segoe UI",
     sans-serif;
 
-  font-size: 1.5rem;
+  font-size: 0.95rem;
 
-  font-weight: 500;
+  font-weight: 600;
 
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 
   color:
-    rgba(255, 255, 255, 0.85);
+    var(--color-text);
 
 }
 

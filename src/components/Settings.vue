@@ -458,6 +458,23 @@ function resetSettings() {
 
   margin: 0 auto;
 
+  padding:
+    var(--space-2xl)
+    var(--space-2xl)
+    var(--space-3xl);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  backdrop-filter:
+    blur(6px);
+
+  box-shadow:
+    0 12px 40px rgba(20, 20, 25, 0.08);
+
 }
 
 

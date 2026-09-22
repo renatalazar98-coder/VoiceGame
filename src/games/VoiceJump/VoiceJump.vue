@@ -8,6 +8,9 @@ import {
 
 import { useAudio } from '../../composables/useAudio'
 
+import nomeVoicejump from '../../images/nome-voicejump.png'
+import risorsa6 from '../../images/risorsa-6.png'
+
 
 /*
 |--------------------------------------------------------------------------
@@ -732,6 +735,15 @@ onUnmounted(() => {
   <div class="voice-jump">
 
 
+    <!-- TITLE -->
+
+    <img
+      :src="nomeVoicejump"
+      alt="VoiceJump"
+      class="game-title"
+    />
+
+
     <!-- GAME -->
 
     <div class="game">
@@ -770,7 +782,11 @@ onUnmounted(() => {
 
       <!-- GROUND -->
 
-      <div class="ground"></div>
+      <img
+        :src="risorsa6"
+        alt=""
+        class="ground-sand"
+      />
 
 
     </div>
@@ -833,7 +849,35 @@ onUnmounted(() => {
   overflow: hidden;
 
   background:
-    var(--color-background);
+    url('../../images/sfondo.png')
+    center / cover
+    no-repeat;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| TITLE
+|--------------------------------------------------------------------------
+*/
+
+.game-title {
+
+  position: absolute;
+
+  top: 108px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 10;
+
+  height: 22px;
+  width: auto;
+
+  pointer-events: none;
 }
 
 
@@ -878,6 +922,9 @@ onUnmounted(() => {
 
   font-variant-numeric:
     tabular-nums;
+
+  text-shadow:
+    0 1px 6px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -893,7 +940,7 @@ onUnmounted(() => {
 
   left: 15%;
 
-  bottom: 122px;
+  bottom: 100px;
 
   width: 40px;
 
@@ -901,8 +948,9 @@ onUnmounted(() => {
 
   border-radius: 50%;
 
-  background:
-    var(--color-accent);
+  background: #ff00fe;
+
+  z-index: 5;
 
   transition:
     transform 0.02s linear;
@@ -919,19 +967,15 @@ onUnmounted(() => {
 
   position: absolute;
 
-  bottom: 122px;
+  bottom: 100px;
 
   width: 40px;
 
   min-height: 20px;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.8
-    );
+  z-index: 4;
+
+  background: #dfbf8c;
 }
 
 
@@ -941,25 +985,22 @@ onUnmounted(() => {
 |--------------------------------------------------------------------------
 */
 
-.ground {
+.ground-sand {
 
   position: absolute;
 
   left: 0;
-
   right: 0;
+  bottom: 0;
 
-  bottom: 120px;
+  z-index: 3;
 
-  height: 2px;
+  width: 100%;
+  height: auto;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.25
-    );
+  pointer-events: none;
+
+  user-select: none;
 }
 
 
@@ -986,12 +1027,14 @@ onUnmounted(() => {
   gap:
     var(--space-lg);
 
+  z-index: 20;
+
   background:
     rgba(
-      13,
-      13,
-      15,
-      0.8
+      242,
+      242,
+      240,
+      0.9
     );
 
   backdrop-filter:
@@ -1050,7 +1093,7 @@ onUnmounted(() => {
     var(--color-accent);
 
   color:
-    var(--color-background);
+    #ffffff;
 
   font-size: 0.95rem;
 
@@ -1087,6 +1130,8 @@ onUnmounted(() => {
   left: 50%;
 
   bottom: 32px;
+
+  z-index: 15;
 
   transform:
     translateX(-50%);
